@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="icon" href="data:," />
+  <title>Bonny Balls (虫子祖玛) — Authentic 8-Stage HTML5 Reproduction</title>
+  <style>
+    :root {
+      --bg-dark: #0b1320;
+      --panel-bg: rgba(17, 28, 45, 0.92);
+      --border-col: rgba(132, 214, 24, 0.38);
+      --accent-green: #84d618;
+      --accent-gold: #ffe44d;
+      --accent-cyan: #38bdf8;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body {
+      background: radial-gradient(circle at 50% 18%, #172a46 0%, #09101d 70%, #050911 100%);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 8px 12px 14px;
+      overflow-x: hidden;
+    }
+    .header-bar {
+      width: 100%;
+      max-width: 1060px;
+      background: var(--panel-bg);
+      border: 1px solid var(--border-col);
+      border-radius: 10px;
+      padding: 7px 12px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-title {
+      font-weight: 900;
+      font-size: 16px;
+      letter-spacing: 0.3px;
+      color: var(--accent-gold);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .toolbar-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+    }
+    .group-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 2px;
+    }
+    button.ctrl-btn {
+      background: #1e293b;
+      color: #e2e8f0;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+    button.ctrl-btn:hover {
+      background: #334155;
+      border-color: #64748b;
+      color: #ffffff;
+    }
+    button.ctrl-btn.active {
+      background: linear-gradient(180deg, #84d618 0%, #4ea80c 100%);
+      color: #071a00;
+      border-color: #bef264;
+      box-shadow: 0 0 8px rgba(132, 214, 24, 0.45);
+    }
+    button.ctrl-btn.speed-btn.active {
+      background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+      color: #041322;
+      border-color: #bae6fd;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.45);
+    }
+    button.ctrl-btn.lvl7-highlight {
+      border-color: #f59e0b;
+      color: #fde68a;
+    }
+    .stage-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 820px;
+      aspect-ratio: 650 / 500;
+      max-height: calc(100vh - 135px);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid rgba(132, 214, 24, 0.5);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+      background: #2b580c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #game-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: crosshair;
+      touch-action: none;
+    }
+    .footer-note {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 960px;
+    }
+    .footer-note code {
+      color: var(--accent-gold);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-bar">
+    <div class="brand-group">
+      <span class="brand-title">🐛 Bonny Balls (虫子祖玛)</span>
+      <span class="brand-sub">第七关 0.2x Game Over • 0.1x Speed Gear Ready</span>
+    </div>
+
+    <div class="toolbar-row">
+      <span class="group-label">Stage:</span>
+      <button class="ctrl-btn" data-level-btn="1">1</button>
+      <button class="ctrl-btn" data-level-btn="2">2</button>
+      <button class="ctrl-btn" data-level-btn="3">3</button>
+      <button class="ctrl-btn" data-level-btn="4" title="Garden Pool (Sliding Cannon)">4</button>
+      <button class="ctrl-btn" data-level-btn="5">5</button>
+      <button class="ctrl-btn" data-level-btn="6">6</button>
+      <button class="ctrl-btn lvl7-highlight" data-level-btn="7" title="Bilibili Video Stage 7 (Dual-Track Pyramid)">7 ★</button>
+      <button class="ctrl-btn" data-level-btn="8" title="Desert Railroad (Sliding Cannon)">8</button>
+    </div>
+
+    <div class="toolbar-row">
+      <span class="group-label">Speed Gear:</span>
+      <button class="ctrl-btn speed-btn" data-speed-btn="0.05">0.05x</button>
+      <button class="ctrl-btn speed-btn" data-speed-btn="0.1" title="Recommended for Stage 7!">0.1x ★</button>
+      <button class="ctrl-btn speed-btn" data-speed-btn="0.2" title="Bilibili Video Speed (0.2x)">0.2x</button>
+      <button class="ctrl-btn speed-btn" data-speed-btn="0.5">0.5x</button>
+      <button class="ctrl-btn speed-btn active" data-speed-btn="1.0">1.0x</button>
+      <button class="ctrl-btn speed-btn" data-speed-btn="1.5">1.5x</button>
+    </div>
+
+    <div class="toolbar-row">
+      <button class="ctrl-btn" id="btn-lvl7-mode" title="Toggle Stage 7 between Bilibili Dual-Track and Classic Single-Arch">Lvl7: Dual-Track (Bilibili)</button>
+      <button class="ctrl-btn" id="btn-swap" title="Swap Front & Back Balls (Spacebar or Right-Click)">⇄ Swap</button>
+      <button class="ctrl-btn" id="btn-pause" title="Pause / Resume (P)">⏸ Pause</button>
+      <button class="ctrl-btn" id="btn-mute" title="Mute / Unmute Audio (M)">🔊 Audio</button>
+    </div>
+  </header>
+
+  <main class="stage-wrap">
+    <canvas id="game-canvas" width="1300" height="1000"></canvas>
+  </main>
+
+  <footer class="footer-note">
+    Controls: <code>Left-Click / Tap</code> Shoot • <code>Space / Right-Click</code> Swap Ball • <code>1–8</code> Jump to Stage • <code>0.1x / 0.2x</code> Speed Gear (reproducing Bilibili <code>BV1y5hR6gEuY</code> Stage 7 Dual-Track challenge)
+  </footer>
+
+  <script src="paths.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
